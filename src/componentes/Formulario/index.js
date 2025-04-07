@@ -10,15 +10,6 @@ const Formulario = (props) => {
   const [imagem, setImagem] = useState('');
   const [time, setTime] = useState('');
 
-  const times = [
-    "Programação",
-    "Front-End",
-    "Data Science",
-    "Devops",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
 
   const aoSalvar = (event) => {
     event.preventDefault();
@@ -55,7 +46,7 @@ const Formulario = (props) => {
         ></CampoTexto>
         <ListaSuspensa 
           label="Time"
-          item={times}
+          item={props.times}
           obrigatorio={true}
           aoAlterado={valor => setTime(valor)}
          ></ListaSuspensa>
