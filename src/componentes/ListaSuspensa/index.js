@@ -17,6 +17,7 @@ const ListaSuspensa = (props) => {
             </option>
           ))}
       </select>
+      
     </div>
   );
 };

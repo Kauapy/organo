@@ -6,6 +6,7 @@ const Time = (props, aoDeletar) => {
 
   return (
     (props.colaboradores.length) > 0 && <section className="time" style={css}>
+      <input value={time.corSecundaria} type="color" className="input-cor"></input>
       <h3 style={tituloEstilo}>{props.nome}</h3>
       <div className="colaboradores">
         {props.colaboradores.map((colaborador) => {
@@ -22,6 +23,7 @@ const Time = (props, aoDeletar) => {
             />
           );
         })}
+        
       </div>
     </section>
   );
