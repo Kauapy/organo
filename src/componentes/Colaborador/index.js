@@ -1,8 +1,9 @@
+import { IoIosCloseCircle } from "react-icons/io";
 import "./Colaborador.css";
 const Colaborador = ({nome, imagem, cargo, cordeFundo, aoDeletar}) => {
   return (
     <div className="colaborador">
-      <div className="deletar" onClick={aoDeletar}>deletar</div>
+      <IoIosCloseCircle className="deletar" onClick={aoDeletar}/>
       <div className="cabecalho" style={{ backgroundColor: cordeFundo }}>
         <img src={imagem} alt={nome}></img>
       </div>
