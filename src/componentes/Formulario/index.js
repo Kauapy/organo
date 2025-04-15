@@ -17,7 +17,7 @@ const Formulario = (props) => {
       nome,
       cargo,
       imagem,
-      time
+      time,
     });
     setNome('');
     setCargo('');
@@ -52,6 +52,7 @@ const Formulario = (props) => {
           label="Time"
           item={props.times}
           obrigatorio={true}
+          valor={time}
           aoAlterado={valor => setTime(valor)}
          ></ListaSuspensa>
         <Botao>Criar card</Botao>
