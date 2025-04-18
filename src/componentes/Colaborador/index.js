@@ -1,5 +1,6 @@
 import { IoIosCloseCircle } from "react-icons/io";
 import "./Colaborador.css";
+
 const Colaborador = ({ nome, imagem, cargo, cordeFundo, aoDeletar }) => {
   return (
     <div className="colaborador">

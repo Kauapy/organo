@@ -3,7 +3,7 @@ import Banner from "./componentes/Banner/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
 function App() {
-  const times = [
+  const [times, setTimes] = useState([
     {
       nome: "Programação",
       corPrimaria: "#57C278",
@@ -39,7 +39,9 @@ function App() {
       corPrimaria: "#FF8A29",
       corSecundaria: "#FFEEDF",
     },
-  ];
+  ]
+)
+
 
   const [colaboradores, setColaboradores] = useState([]);
 
@@ -49,7 +51,17 @@ function App() {
   };
 
   function deletarColaborador(){
+    console.log("Deletando Colaborador");
     
+  }
+
+  function mudarCorDoTime(cor,nome){
+    setTimes(times.map(time => {
+      if(time.nome === nome){
+        time.corSecundaria = cor;
+      }
+      return time;
+    }))
   }
 
   return (
@@ -63,6 +75,7 @@ function App() {
       ></Formulario>
       {times.map((time) => (
         <Time
+          mudarCor={mudarCorDoTime}
           key={time.nome}
           nome={time.nome}
           corPrimaria={time.corPrimaria}
