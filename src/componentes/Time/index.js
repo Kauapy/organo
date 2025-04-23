@@ -7,10 +7,10 @@ const Time = (props) => {
 
   return (
     props.colaboradores.length > 0 && (
-      <section className="time" style={{backgroundColor: hexToRgba(props.cor, '0.6')}}>
+      <section className="time" style={{backgroundColor: hexToRgba(props.cor || '#FFFFFF', 0.6)}}>
         <input
           onChange={(evento) => props.mudarCor(evento.target.value, props.nome)}
-          value={props.corPrimaria}
+          value={props.cor}
           type="color"
           className="input-cor"
           
