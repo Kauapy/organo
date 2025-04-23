@@ -1,6 +1,7 @@
 import "./Time.css";
 import Colaborador from "../Colaborador";
-const Time = (props, aoDeletar, mudarCor, time) => {
+
+const Time = (props) => {
   const css = { backgroundColor: props.corSecundaria };
   const tituloEstilo = { borderColor: props.corPrimaria };
 
@@ -9,7 +10,7 @@ const Time = (props, aoDeletar, mudarCor, time) => {
       <section className="time" style={css}>
         <input
           onChange={(evento) => props.mudarCor(evento.target.value, props.nome)}
-          value={Time.corSecundaria}
+          value={props.corPrimaria}
           type="color"
           className="input-cor"
         ></input>
@@ -18,13 +19,13 @@ const Time = (props, aoDeletar, mudarCor, time) => {
           {props.colaboradores.map((colaborador) => {
             return (
               <Colaborador
-                corDeFundo={colaborador.corPrimaria}
+                corDeFundo={props.corPrimaria}
                 key={colaborador.nome}
                 nome={colaborador.nome}
                 cargo={colaborador.cargo}
                 imagem={colaborador.imagem}
                 time={props.nome}
-                aoDeletar={(aoDeletar) => {}}
+                aoDeletar={props.aoDeletar}
               />
             );
           })}
