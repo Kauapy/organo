@@ -4,7 +4,7 @@ import hexToRgba from "hex-to-rgba";
 
 const Time = (props) => {
 
-  const tituloEstilo = { borderColor: props.cor };
+  const tituloEstilo = { borderColor: props.corPrimaria };
 
   return (
     props.colaboradores.length > 0 && (
@@ -23,7 +23,7 @@ const Time = (props) => {
           {props.colaboradores.map((colaborador) => {
             return (
               <Colaborador
-                corDeFundo={props.cor}
+                corDeFundo={props.corPrimaria}
                 key={colaborador.nome}
                 nome={colaborador.nome}
                 cargo={colaborador.cargo}
