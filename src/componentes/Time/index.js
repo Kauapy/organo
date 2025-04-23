@@ -30,6 +30,7 @@ const Time = (props) => {
                 imagem={colaborador.imagem}
                 time={props.nome}
                 aoDeletar={props.aoDeletar}
+                id={colaborador.id || colaborador.nome} 
               />
             );
           })}

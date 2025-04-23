@@ -59,8 +59,7 @@ function App() {
   };
 
   function deletarColaborador(){
-    console.log("Deletando Colaborador");
-    
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
   }
 
   function mudarCorDoTime(cor,nome){
@@ -87,6 +86,7 @@ function App() {
           key={time.nome}
           nome={time.nome}
           cor={time.cor}
+          id={time.id}
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
