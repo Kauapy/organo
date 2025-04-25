@@ -55,11 +55,16 @@ function App() {
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     console.log(colaborador);
+    id: uuidv4();
     setColaboradores([...colaboradores, colaborador]);
   };
 
-  function deletarColaborador(){
-    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
+  function deletarColaborador(colaboradorId) {    
+    setColaboradores(colaboradores.filter(colaborador => {
+      return colaborador.id !== colaboradorId && 
+             colaborador.nome !== colaboradorId &&
+             colaborador.uuidv4 !== colaboradorId;
+    }));
   }
 
   function mudarCorDoTime(cor,nome){
