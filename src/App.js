@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Banner from "./componentes/Banner/Banner";
 import Formulario from "./componentes/Formulario";
 import Time from "./componentes/Time";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 function App() {
   const [times, setTimes] = useState([
     {
@@ -47,39 +47,47 @@ function App() {
       cor: "#FFEEDF",
       corPrimaria: "#FF8A29",
     },
-  ]
-)
-
+  ]);
 
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
-    id: uuidv4();
-    setColaboradores([...colaboradores, colaborador]);
+    const novoColaborador = { ...colaborador, id: uuidv4() };
+    setColaboradores([...colaboradores, novoColaborador]);
   };
 
-  function deletarColaborador(colaboradorId) {    
-    setColaboradores(colaboradores.filter(colaborador => {
-      return colaborador.id !== colaboradorId && 
-             colaborador.nome !== colaboradorId &&
-             colaborador.uuidv4 !== colaboradorId;
-    }));
+  function deletarColaborador(colaboradorId) {
+    setColaboradores(
+      colaboradores.filter((colaborador) => {
+        return (
+          colaborador.id !== colaboradorId &&
+          colaborador.nome !== colaboradorId &&
+          colaborador.uuidv4 !== colaboradorId
+        );
+      })
+    );
   }
 
-  function mudarCorDoTime(cor,nome){
-    setTimes(times.map(time => {
-      if(time.nome === nome){
-        return {...time, cor: cor, corPrimaria: cor}
-      }
-      return time;
-    }))
+  function mudarCorDoTime(cor, nome) {
+    setTimes(
+      times.map((time) => {
+        if (time.nome === nome) {
+          return { ...time, cor: cor, corPrimaria: cor };
+        }
+        return time;
+      })
+    );
+  }
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
   }
 
   return (
     <div>
       <Banner></Banner>
       <Formulario
+        cadastrarTime={cadastrarTime}
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
         }
@@ -94,7 +102,9 @@ function App() {
           id={time.id}
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
-          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.time === time.nome
+          )}
           aoDeletar={deletarColaborador}
         ></Time>
       ))}
