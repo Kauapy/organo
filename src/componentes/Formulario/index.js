@@ -1,5 +1,5 @@
 import "./Formulario.css";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import Botao from "../Botao";
 import { useState } from "react";
@@ -31,26 +31,26 @@ const Formulario = (props, cadastrarTime) => {
     <section className="formulario">
       <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card dos colaborador</h2>
-        <CampoTexto
+        <Campo
           obrigatorio={true}
           label="Nome"
           placeholder="Digite seu nome"
           valor={nome}
           aoAlterado={valor => setNome(valor)}
-        ></CampoTexto>
-        <CampoTexto
+        ></Campo>
+        <Campo
           obrigatorio
           label="Cargo"
           placeholder="Digite seu cargo"
           valor={cargo}
           aoAlterado={valor => setCargo(valor)}
-        ></CampoTexto>
-        <CampoTexto
+        ></Campo>
+        <Campo
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           valor={imagem}
           aoAlterado={valor => setImagem(valor)}
-        ></CampoTexto>
+        ></Campo>
         <ListaSuspensa 
           label="Time"
           item={props.times}
@@ -65,20 +65,21 @@ const Formulario = (props, cadastrarTime) => {
         props.cadastrarTime({nome: nomeTime, cor: corTime})
       }}>
         <h2>Preencha os dados para criar um novo time</h2>
-        <CampoTexto
+        <Campo
           obrigatorio
           label="Nome"
           placeholder="Digite seu nome"
           valor={nomeTime}
           aoAlterado={valor => setNomeTime(valor)}
-        ></CampoTexto>
-        <CampoTexto
+        ></Campo>
+        <Campo
           obrigatorio
           label="Cor"
           placeholder="Digite a cor do Time"
           valor={corTime}
           aoAlterado={valor => setCorTime(valor)}
-        ></CampoTexto>
+          type="color"
+        ></Campo>
         <Botao>Criar um novo time</Botao>
       </form>
     </section>
