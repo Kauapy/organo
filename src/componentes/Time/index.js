@@ -23,6 +23,7 @@ const Time = (props) => {
           {props.colaboradores.map((colaborador) => {
             return (
               <Colaborador
+                aoFavoritar={props.aoFavoritar} 
                 corDeFundo={props.corPrimaria}
                 key={colaborador.nome}
                 nome={colaborador.nome}
@@ -30,7 +31,8 @@ const Time = (props) => {
                 imagem={colaborador.imagem}
                 time={props.nome}
                 aoDeletar={props.aoDeletar}
-                id={colaborador.id || colaborador.nome} 
+                id={colaborador.id || colaborador.nome}
+                favorito={colaborador.favorito}
               />
             );
           })}

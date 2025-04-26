@@ -10,42 +10,49 @@ function App() {
       nome: "Programação",
       cor: "#D9F7E9",
       corPrimaria: "#57C278",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "Front-End",
       cor: "#E8F8FF",
       corPrimaria: "#82CFFA",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "Data Science",
       cor: "#F0F8E2",
       corPrimaria: "#A6D157",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "Devops",
       cor: "#FDE7E8",
       corPrimaria: "#E06B69",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "UX e Design",
       cor: "#FAE9F5",
       corPrimaria: "#DB6EBF",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "Mobile",
       cor: "#FFF5D9",
       corPrimaria: "#FFBA05",
+      favrito: false,
     },
     {
       id: uuidv4(),
       nome: "Inovação e Gestão",
       cor: "#FFEEDF",
       corPrimaria: "#FF8A29",
+      favrito: false,
     },
   ]);
 
@@ -80,7 +87,17 @@ function App() {
   }
 
   function cadastrarTime(novoTime) {
-    setTimes([...times, { ...novoTime, id: uuidv4(), corPrimaria: novoTime.cor }]);
+    setTimes([
+      ...times,
+      { ...novoTime, id: uuidv4(), corPrimaria: novoTime.cor },
+    ]);
+  }
+
+  function resolverFavorito(id) {
+    setColaboradores(colaboradores.map (colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
   }
 
   return (
@@ -95,6 +112,7 @@ function App() {
       ></Formulario>
       {times.map((time) => (
         <Time
+          aoFavoritar={resolverFavorito}
           mudarCor={mudarCorDoTime}
           key={time.nome}
           nome={time.nome}
